@@ -24,7 +24,7 @@ public class StringFormatter
     {
         if (items?.Length == 0) return "";
 
-        if (items?.Length != 1) return string.Join(delimiter, items);
+        if (items?.Length > 1) return string.Join(delimiter, items);
 
         return items.First();
     }
