@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace PointsBet_Backend_Online_Code_Test
+namespace PointsBet.Backend.Online.CodeTest
 {
 
     /*
