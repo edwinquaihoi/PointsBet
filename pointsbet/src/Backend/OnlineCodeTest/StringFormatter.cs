@@ -1,15 +1,10 @@
-﻿using System.Text;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Text;
 namespace PointsBet.Backend.OnlineCodeTest;
 
-/*
-Improve a block of code as you see fit in C#.
-You may make any improvements you see fit, for example:
-    - Cleaning up code
-    - Removing redundancy
-    - Refactoring / simplifying
-    - Fixing typos
-    - Any other light-weight optimisation
-*/
+/// <summary>
+/// A Utility for various CSV operations
+/// </summary>
 public class StringFormatter
 {
 
@@ -19,13 +14,19 @@ public class StringFormatter
         return DelimitWith(items, ",");
     }
 
-    public static string DelimitWith(String[] items, String delimiter)
+    /// <summary>
+    /// Produces a delimited string  of the elements in the provided array of strings.
+    /// </summary>
+    /// <param name="items">A array of strings to be delimited</param>
+    /// <param name="delimiter">The character seqeunce to use to delimit items</param>
+    /// <returns></returns>
+    public static string DelimitWith([NotNull] String[] items, String delimiter)
     {
         if (items?.Length == 0) return "";
 
-        if (items.Length == 1) return items.First();
+        if (items?.Length != 1) return string.Join(delimiter, items);
 
-        return string.Join(delimiter, items);
+        return items.First();
     }
 }
 
