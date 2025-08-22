@@ -14,19 +14,18 @@ public class StringFormatter
 {
 
     //Code to improve
-    public static string ToCommaSepatatedList(string[] items, string quote)
+    public static string ToCommaSeparatedString(string[] items)
     {
-        StringBuilder qry = new StringBuilder(string.Format("{0}{1}{0}", quote, items[0]));
+        return DelimitWith(items, ",");
+    }
 
-        if (items.Length > 1)
-        {
-            for (int i = 1; i < items.Length; i++)
-            {
-                qry.Append(string.Format(", {0}{1}{0}", quote, items[i]));
-            }
-        }
+    public static string DelimitWith(String[] items, String delimiter)
+    {
+        if (items?.Length == 0) return "";
 
-        return qry.ToString();
+        if (items.Length == 1) return items.First();
+
+        return string.Join(delimiter, items);
     }
 }
 
